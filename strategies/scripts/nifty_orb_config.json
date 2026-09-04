@@ -1,0 +1,72 @@
+{
+  "strategy_name": "Nifty First Candle ORB Strategy",
+  "version": "1.0.0",
+  "description": "Opening Range Breakout strategy based on first 1-minute candle",
+  
+  "capital_management": {
+    "starting_capital": 100000,
+    "risk_per_trade_pct": 5.0,
+    "max_daily_loss_pct": 10.0,
+    "comment": "Capital in INR, percentages for risk management"
+  },
+  
+  "position_sizing": {
+    "position_size_lots": 3,
+    "tp1_exit_lots": 2,
+    "tp2_exit_lots": 1,
+    "lot_size": 50,
+    "comment": "Nifty lot size is 50. Verify current value before live trading."
+  },
+  
+  "orb_parameters": {
+    "orb_range_threshold": 30,
+    "breakout_buffer": 3,
+    "buffer_values_to_test": [2, 3, 5],
+    "comment": "Breakout buffer in Nifty points. Test different values in backtesting."
+  },
+  
+  "tp_trailing": {
+    "tp1_multiplier": 1.0,
+    "tp2_multiplier": 2.0,
+    "trailing_stop_points": 15,
+    "alternative_tp2_values": [1.5, 2.5, 3.0],
+    "comment": "TP multipliers are in R (risk units). Trailing stop in Nifty points."
+  },
+  
+  "trade_limits": {
+    "max_trades_per_day": 2,
+    "comment": "Maximum 2 trades per day regardless of win/loss"
+  },
+  
+  "timing": {
+    "market_open": "09:15",
+    "market_close": "15:30",
+    "first_candle_duration": 60,
+    "comment": "Times in IST. First candle duration in seconds."
+  },
+  
+  "instrument": {
+    "underlying": "NIFTY",
+    "exchange": "NFO",
+    "option_type": "ATM",
+    "product": "MIS",
+    "comment": "Trading ATM Nifty options on NFO exchange"
+  },
+  
+  "backtesting_parameters": {
+    "orb_thresholds_to_test": [25, 30, 35, 40],
+    "breakout_buffers": [2, 3, 5],
+    "tp1_values": [1.0],
+    "tp2_values": [1.5, 2.0, 2.5, 3.0],
+    "trailing_stops": [10, 15, 20],
+    "comment": "Parameters to test during strategy optimization"
+  },
+  
+  "risk_warnings": {
+    "warning_1": "5% risk per trade is aggressive for options",
+    "warning_2": "Option premiums are affected by delta, IV, time decay",
+    "warning_3": "Backtest with realistic slippage and transaction costs",
+    "warning_4": "Paper trade before live deployment",
+    "warning_5": "Past performance does not guarantee future results"
+  }
+}
