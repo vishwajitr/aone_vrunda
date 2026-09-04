@@ -1,0 +1,55 @@
+# Security Verification for Git Commits
+# This file documents what is protected from being committed
+
+# ✅ PROTECTED FILES (will NOT be committed):
+#
+# 1. Environment files with secrets:
+#    - .env (all variants)
+#    - .env.*
+#    - *.env
+#    - env.backup
+#
+# 2. Database files:
+#    - *.db
+#    - *.sqlite
+#    - *.duckdb
+#
+# 3. Encryption keys:
+#    - db/strategy_encryption.key
+#    - keys/ (OAuth keys for Remote MCP)
+#
+# 4. Logs and temporary files:
+#    - *.log
+#    - *.tmp
+#    - log/
+#    - tmp/
+#
+# 5. Workspace (personal strategies):
+#    - workspace/**
+#
+# 6. Build artifacts:
+#    - node_modules/
+#    - dist/
+#    - build/
+#    - .venv/
+
+# ✅ VERIFICATION COMMANDS:
+#
+# Check if .env is ignored:
+#   git check-ignore .env
+#
+# Check what would be committed:
+#   git status
+#   git diff --cached
+#
+# Search for potential secrets before commit:
+#   git diff --cached | grep -i "api_key\|secret\|password\|token"
+
+# ⚠️  IMPORTANT:
+# The .gitignore file already protects all sensitive files.
+# This file is just documentation for reference.
+# 
+# If you accidentally commit a secret:
+# 1. ROTATE the secret immediately (generate new keys)
+# 2. Remove from git history (git filter-branch or BFG)
+# 3. Force push to remote repository

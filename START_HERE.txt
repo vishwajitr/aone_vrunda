@@ -1,0 +1,53 @@
+╔═══════════════════════════════════════════════════════════════╗
+║                                                               ║
+║              OpenAlgo Setup Complete! ✅                      ║
+║                                                               ║
+╚═══════════════════════════════════════════════════════════════╝
+
+Your OpenAlgo installation is ready!
+
+┌───────────────────────────────────────────────────────────────┐
+│ NEXT STEP: Configure Your Broker                             │
+└───────────────────────────────────────────────────────────────┘
+
+Option 1 - Use the configuration helper (Recommended):
+    ./configure_broker.sh
+
+Option 2 - Manual configuration:
+    1. Open .env file
+    2. Update REDIRECT_URL with your broker name
+    3. Add your broker API credentials
+
+┌───────────────────────────────────────────────────────────────┐
+│ THEN: Start OpenAlgo                                         │
+└───────────────────────────────────────────────────────────────┘
+
+    uv run app.py
+
+    Open browser: http://127.0.0.1:5000
+
+┌───────────────────────────────────────────────────────────────┐
+│ 📖 Documentation                                              │
+└───────────────────────────────────────────────────────────────┘
+
+Quick Start:         QUICKSTART.md
+Complete Setup Info: SETUP_COMPLETE.md
+User Guide:          docs/userguide/README.md
+
+┌───────────────────────────────────────────────────────────────┐
+│ 🔐 Security Reminder                                          │
+└───────────────────────────────────────────────────────────────┘
+
+Your .env file contains SECRET KEYS and API credentials.
+NEVER share this file or commit it to version control!
+
+┌───────────────────────────────────────────────────────────────┐
+│ Need Help?                                                    │
+└───────────────────────────────────────────────────────────────┘
+
+Discord:      https://www.openalgo.in/discord
+GitHub:       https://github.com/marketcalls/openalgo/issues
+Docs:         https://docs.openalgo.in
+
+Setup Date: September 4, 2026
+
