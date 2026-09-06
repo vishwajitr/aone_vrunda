@@ -132,4 +132,11 @@ export const tools: Tool[] = [
     href: '/arbitrage',
     color: 'bg-green-600',
   },
+  {
+    title: 'Options Backtester',
+    description:
+      'Backtest intraday options buying strategies with synthetic Black-76 pricing, P&L analytics and trade log',
+    href: '/backtest',
+    color: 'bg-indigo-500',
+  },
 ]
