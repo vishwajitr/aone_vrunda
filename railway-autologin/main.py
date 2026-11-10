@@ -135,6 +135,9 @@ def main():
     key = os.getenv("OPENALGO_API_KEY", "").strip()
     if key:
         _, p = c.call("POST", "/api/v1/ping", body={"apikey": key})
+        if p.get("status") != "success":
+            sys.exit(f"Angel is connected, but OPENALGO_API_KEY was refused ({p.get('message')}). "
+                     "Generate a key at /apikey and put it on this Railway service.")
         _, a = c.call("POST", "/api/v1/analyzer", body={"apikey": key})
         mode = (a.get("data") or {}).get("mode", "?")
         log(f"check: broker {((p.get('data') or {}).get('broker') or '?')}, mode {mode}")

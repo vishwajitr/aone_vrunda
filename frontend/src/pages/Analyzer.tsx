@@ -24,6 +24,7 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table'
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip'
 
 interface ApiRequest {
   timestamp: string
@@ -315,9 +316,16 @@ export default function Analyzer() {
                         <Badge variant="default">{request.api_type}</Badge>
                       </TableCell>
                       <TableCell>
-                        <Badge variant="secondary" className="truncate max-w-[120px]">
-                          {request.source}
-                        </Badge>
+                        <TooltipProvider delayDuration={100}>
+                          <Tooltip>
+                            <TooltipTrigger asChild>
+                              <Badge variant="secondary" className="truncate max-w-[120px]">
+                                {request.source}
+                              </Badge>
+                            </TooltipTrigger>
+                            <TooltipContent>{request.source}</TooltipContent>
+                          </Tooltip>
+                        </TooltipProvider>
                       </TableCell>
                       <TableCell className="font-medium">{getRequestDetails(request)}</TableCell>
                       <TableCell>
